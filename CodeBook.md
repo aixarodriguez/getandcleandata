@@ -16,7 +16,7 @@
   - test_train_ms -> Extract from dataset test_train the columns with certain especifications (activity,subject,mean and std)
   - test_train_res -> Final dataset with the average of each variable for each activity and each subject
 
-## Scripts
+## Functions
   - download.file -> Download the data file from url provided 
   - unz -> Unzip the file in temporal (memory)
   - read.table -> Gets the corresponding file from zip into a dataset
