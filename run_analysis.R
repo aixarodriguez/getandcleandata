@@ -34,9 +34,7 @@ y_train<-merge(y_train,activity,by.x="activitycode",by.y="activitycode",all.x=TR
 
 #define data_set
 test_dataset<-cbind(subject_test,y_test,x_test)
-test_dataset$set_type="test"
 train_dataset<-cbind(subject_train,y_train,x_train)
-train_dataset$set_type="train"
 
 #combined data_set
 test_train<-rbind(test_dataset,train_dataset)
@@ -49,5 +47,5 @@ test_train_ms<-test_train[,grepl("activity|subject|[Mm]ean|[Ss]td",column_names)
 test_train_res<-test_train_ms %>% 
                 group_by(activitycode,activity,subject) %>% 
                 summarise_each(funs="mean") %>% 
-                arrange(activitycode,subject)
-write.csv(test_train_res,"tydi_average.csv")
+                  arrange(activitycode,subject)
+write.table(test_train_res,"tidy_data.txt",row.name=FALSE)
